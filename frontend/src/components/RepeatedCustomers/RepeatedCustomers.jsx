@@ -11,7 +11,7 @@ const RepeatCustomers = () => {
 
   const getOrderData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/shopify/customers')
+      const response = await axios.get('https://datavisualization-jxqo.onrender.com/api/shopify/customers')
       setOrderData(response.data.data || [])
       console.log(response.data.data)
     } catch (error) {

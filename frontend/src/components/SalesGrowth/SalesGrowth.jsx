@@ -11,7 +11,7 @@ const SalesGrowth = () => {
 
   const getOrderData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/shopify/orders')
+      const response = await axios.get('https://datavisualization-jxqo.onrender.com/api/shopify/orders')
       console.log('API Response:', response.data.data)
       setOrderData(response.data.data || [])
     } catch (error) {

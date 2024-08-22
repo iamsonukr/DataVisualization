@@ -12,7 +12,7 @@ const TotalSalesOverTime = () => {
   // Fetch order data from the API
   const getOrderData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/shopify/orders')
+      const response = await axios.get('https://datavisualization-jxqo.onrender.com/api/shopify/orders')
       setOrderData(response.data.data || [])
     } catch (error) {
       console.error("Error fetching customer data:", error)
