@@ -60,22 +60,53 @@ const TotalSalesOverTime = () => {
       {
         label: 'Total Sales',
         data: Object.values(salesData), // Sales amounts
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1,
+        backgroundColor:  'rgba(72, 207, 173, 0.9)',
+        borderColor: 'rgba(72, 207, 173, 0.9)',
+        borderWidth: 2,
+        borderRadius: 5,
+        hoverBackgroundColor: 'rgba(72, 207, 173, 0.9)',
       },
     ],
-  }
-
+  };
+  
   const chartOptions = {
     responsive: true,
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          font: {
+            family: 'Poppins',
+            size: 14,
+            weight: '500',
+            color: '#34495e',
+          },
+        },
       },
       title: {
         display: true,
         text: `Total Sales Over Time (by ${interval})`,
+        font: {
+          family: 'Poppins',
+          size: 18,
+          weight: '600',
+          color: '#2c3e50',
+        },
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleFont: {
+          family: 'Poppins',
+          size: 16,
+          weight: '600',
+        },
+        bodyFont: {
+          family: 'Poppins',
+          size: 14,
+        },
+        xPadding: 15,
+        yPadding: 15,
+        cornerRadius: 10,
       },
     },
     scales: {
@@ -83,18 +114,50 @@ const TotalSalesOverTime = () => {
         title: {
           display: true,
           text: 'Date',
+          font: {
+            family: 'Poppins',
+            size: 14,
+            weight: '500',
+            color: '#34495e',
+          },
+        },
+        grid: {
+          color: 'rgba(39, 174, 96, 0.2)', // Subtle green grid lines
+        },
+        ticks: {
+          font: {
+            family: 'Poppins',
+            size: 12,
+            color: '#2c3e50',
+          },
         },
       },
       y: {
         title: {
           display: true,
           text: 'Total Sales (INR)',
+          font: {
+            family: 'Poppins',
+            size: 14,
+            weight: '500',
+            color: '#34495e',
+          },
         },
         beginAtZero: true,
+        grid: {
+          color: 'rgba(39, 174, 96, 0.2)', // Subtle green grid lines
+        },
+        ticks: {
+          font: {
+            family: 'Poppins',
+            size: 12,
+            color: '#2c3e50',
+          },
+        },
       },
     },
-  }
-
+  };
+  
   return (
     <div>
       <Bar data={chartData} options={chartOptions} />

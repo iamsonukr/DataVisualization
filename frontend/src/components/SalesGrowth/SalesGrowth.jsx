@@ -60,23 +60,58 @@ const SalesGrowth = () => {
       {
         label: 'Cumulative Sales',
         data: salesData.map(item => item.total), // Cumulative sales amounts
-        borderColor: 'rgba(75, 192, 192, 1)',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(72, 207, 173, 1)', // Bright green border color
+        backgroundColor: 'rgba(72, 207, 173, 0.4)', // Gradient effect using a lighter green
         fill: true,
-        tension: 0.1,
+        tension: 0.3, // Smooth the line
+        pointBackgroundColor: 'rgba(241, 196, 15, 1)', // Yellow points
+        pointBorderColor: '#ffffff',
+        pointHoverBackgroundColor: '#ffffff',
+        pointHoverBorderColor: 'rgba(241, 196, 15, 1)',
+        pointRadius: 5,
+        pointHoverRadius: 8,
       },
     ],
-  }
-
+  };
+  
   const chartOptions = {
     responsive: true,
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          font: {
+            family: 'Poppins',
+            size: 14,
+            weight: '500',
+            color: '#34495e', // Dark grey legend color
+          },
+        },
       },
       title: {
         display: true,
         text: `Sales Growth Over Time (by ${interval})`,
+        font: {
+          family: 'Poppins',
+          size: 18,
+          weight: '600',
+          color: '#2c3e50', // Dark blue-grey title color
+        },
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleFont: {
+          family: 'Poppins',
+          size: 16,
+          weight: '600',
+        },
+        bodyFont: {
+          family: 'Poppins',
+          size: 14,
+        },
+        xPadding: 15,
+        yPadding: 15,
+        cornerRadius: 10,
       },
     },
     scales: {
@@ -84,17 +119,50 @@ const SalesGrowth = () => {
         title: {
           display: true,
           text: 'Date',
+          font: {
+            family: 'Poppins',
+            size: 14,
+            weight: '500',
+            color: '#34495e',
+          },
+        },
+        grid: {
+          color: 'rgba(39, 174, 96, 0.2)', // Light green grid lines
+        },
+        ticks: {
+          font: {
+            family: 'Poppins',
+            size: 12,
+            color: '#2c3e50', // Dark blue-grey ticks
+          },
         },
       },
       y: {
         title: {
           display: true,
           text: 'Cumulative Sales (INR)',
+          font: {
+            family: 'Poppins',
+            size: 14,
+            weight: '500',
+            color: '#34495e',
+          },
         },
         beginAtZero: true,
+        grid: {
+          color: 'rgba(39, 174, 96, 0.2)', // Light green grid lines
+        },
+        ticks: {
+          font: {
+            family: 'Poppins',
+            size: 12,
+            color: '#2c3e50', // Dark blue-grey ticks
+          },
+        },
       },
     },
-  }
+  };
+  
 
   return (
     <div>

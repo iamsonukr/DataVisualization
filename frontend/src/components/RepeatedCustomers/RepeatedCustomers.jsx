@@ -1,10 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Bar } from 'react-chartjs-2'
-import { Chart as ChartJs, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
+import { Radar } from 'react-chartjs-2'
+import { Chart as ChartJs, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js'
 import moment from 'moment'
 
-ChartJs.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+ChartJs.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend)
 
 const RepeatCustomers = () => {
   const [orderData, setOrderData] = useState([])
@@ -72,7 +72,7 @@ const RepeatCustomers = () => {
   const interval = 'month'  // Change to 'day', 'quarter', 'year' as needed
   const repeatCustomerCounts = aggregateRepeatCustomers(interval)
 
-  // Prepare data for the chart
+  // Prepare data for the radar chart
   const dates = Object.keys(repeatCustomerCounts)
   const counts = Object.values(repeatCustomerCounts)
 
@@ -84,7 +84,8 @@ const RepeatCustomers = () => {
         data: counts,
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
         borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1,
+        borderWidth: 2,
+        pointBackgroundColor: 'rgba(75, 192, 192, 1)',
       },
     ],
   }
@@ -101,25 +102,23 @@ const RepeatCustomers = () => {
       },
     },
     scales: {
-      x: {
-        title: {
+      r: {
+        angleLines: {
           display: true,
-          text: 'Date',
         },
-      },
-      y: {
-        title: {
-          display: true,
-          text: 'Number of Repeat Customers',
+        suggestedMin: 0,
+        suggestedMax: Math.max(...counts) + 1,
+        ticks: {
+          beginAtZero: true,
+          stepSize: 1,
         },
-        beginAtZero: true,
       },
     },
   }
 
   return (
     <div>
-      <Bar data={chartData} options={chartOptions} />
+      <Radar data={chartData} options={chartOptions} />
     </div>
   )
 }

@@ -70,46 +70,114 @@ const CustomerLifeTime = () => {
   const values = cohorts.map(cohort => cohortCLV[cohort])
 
   const chartData = {
-    labels: cohorts,
-    datasets: [
-      {
-        label: 'Customer Lifetime Value by Cohort',
-        data: values,
-        fill: false,
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 2,
-      },
-    ],
-  }
+  labels: cohorts,
+  datasets: [
+    {
+      label: 'Customer Lifetime Value by Cohort',
+      data: values,
+      fill: false,
+      backgroundColor: 'rgba(72, 207, 173, 0.6)', // Soft green background
+      borderColor: 'rgba(72, 207, 173, 1)', // Bright green border
+      borderWidth: 3,
+      pointBackgroundColor: 'rgba(241, 196, 15, 1)', // Yellow points
+      pointBorderColor: '#ffffff',
+      pointHoverBackgroundColor: '#ffffff',
+      pointHoverBorderColor: 'rgba(241, 196, 15, 1)',
+      pointRadius: 6,
+      pointHoverRadius: 8,
+    },
+  ],
+};
 
-  const chartOptions = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
+const chartOptions = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+      labels: {
+        font: {
+          family: 'Poppins', // Modern font
+          size: 14,
+          weight: '500',
+          color: '#34495e', // Dark grey color
+        },
       },
+    },
+    title: {
+      display: true,
+      text: 'Customer Lifetime Value by Cohort',
+      font: {
+        family: 'Poppins',
+        size: 18,
+        weight: '600',
+        color: '#2c3e50', // Dark blue-grey title
+      },
+    },
+    tooltip: {
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      titleFont: {
+        family: 'Poppins',
+        size: 16,
+        weight: '600',
+      },
+      bodyFont: {
+        family: 'Poppins',
+        size: 14,
+      },
+      xPadding: 15,
+      yPadding: 15,
+      cornerRadius: 10,
+    },
+  },
+  scales: {
+    x: {
       title: {
         display: true,
-        text: 'Customer Lifetime Value by Cohort',
+        text: 'Cohort (Month of First Purchase)',
+        font: {
+          family: 'Poppins',
+          size: 14,
+          weight: '500',
+          color: '#34495e',
+        },
+      },
+      grid: {
+        color: 'rgba(39, 174, 96, 0.2)', // Light green grid lines
+      },
+      ticks: {
+        font: {
+          family: 'Poppins',
+          size: 12,
+          color: '#2c3e50', // Dark blue-grey ticks
+        },
       },
     },
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: 'Cohort (Month of First Purchase)',
+    y: {
+      title: {
+        display: true,
+        text: 'Lifetime Value (INR)',
+        font: {
+          family: 'Poppins',
+          size: 14,
+          weight: '500',
+          color: '#34495e',
         },
       },
-      y: {
-        title: {
-          display: true,
-          text: 'Lifetime Value (INR)',
-        },
+      grid: {
+        color: 'rgba(39, 174, 96, 0.2)', // Light green grid lines
+      },
+      ticks: {
         beginAtZero: true,
+        font: {
+          family: 'Poppins',
+          size: 12,
+          color: '#2c3e50', // Dark blue-grey ticks
+        },
       },
     },
-  }
+  },
+};
+
 
   return (
     <div>

@@ -4,11 +4,11 @@
     gap: 20px;
     padding: 20px;
     background-color: #f0f2f5;
-    min-height: 100vh;
+    /* min-height: 100vh; */
   }
   
   .chart-card {
-    background-color: #ffffff;
+    background-color: #2f0000;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -109,3 +109,9 @@
   .chart-card {
     border: 1px solid #e0e0e0;
   }
+
+  .active2 {
+    box-shadow: 0 8px 15px rgba(174, 38, 241, 0.5), 0 15px 25px rgba(250, 246, 135, 0.5);
+    border-radius: 10px;
+  }
+
